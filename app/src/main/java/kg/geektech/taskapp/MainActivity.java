@@ -7,13 +7,12 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
     private NavController navController;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.navigation_profile)
                 .build();
@@ -38,3 +35,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+
+//        1. Сделать зебру для списка
+//        2. При нажатии на элемент, показать в тосте его position ("0: asd")
+//        3. При долгом нажатии удалить элемент из списка с помощью AlertDialog

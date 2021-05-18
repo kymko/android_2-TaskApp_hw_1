@@ -1,4 +1,4 @@
-package kg.geektech.taskapp;
+package kg.geektech.taskapp.ui.profile;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -17,6 +17,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import org.jetbrains.annotations.NotNull;
+
+import kg.geektech.taskapp.R;
 
 public class ProfileFragment extends Fragment {
     private ImageView imgFromGall;

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import kg.geektech.taskapp.R;
@@ -39,7 +40,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
         holder.bind(list.get(position));
 
-        if (position % 2 == 1) {
+        if (position % 2 == 0) {
             view.setBackgroundColor(Color.BLUE);
         } else {
             view.setBackgroundColor(Color.CYAN);
@@ -58,12 +59,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
                     }
                 });
 
-                alertDialog.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
+                alertDialog.setNegativeButton("Нет",null);
                 alertDialog.show();
                 return false;
             }
@@ -82,19 +78,24 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView textTitle;
+        private TextView textTitle, time;
 
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             textTitle = itemView.findViewById(R.id.textTitle);
+            time = itemView.findViewById(R.id.time);
         }
 
         public void bind(Task task) {
             textTitle.setText(task.getTitle());
+            long currentInMillis = System.currentTimeMillis();
+            SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyy");
+            String formatDate = date.format(currentInMillis);
+            time.setText(formatDate);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(view.getContext(), "Position: " + String.valueOf(getAdapterPosition()) + " text: " + task.getTitle(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(), "Position: " + (getAdapterPosition()) + " text: " + task.getTitle(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

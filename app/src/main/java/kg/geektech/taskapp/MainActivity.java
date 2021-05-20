@@ -1,7 +1,11 @@
 package kg.geektech.taskapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TableLayout;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,13 +14,18 @@ import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
+import kg.geektech.taskapp.ui.onboard.BoardAdapter;
+
 public class MainActivity extends AppCompatActivity {
 
     private NavController navController;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
         // скрыть нижние табы
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
-            public void onDestinationChanged(@NonNull @NotNull NavController controller, @NonNull @NotNull NavDestination destination, @Nullable @org.jetbrains.annotations.Nullable Bundle arguments) {
+            public void onDestinationChanged(@NonNull @NotNull NavController controller, @NonNull @NotNull NavDestination destination,
+                                             @Nullable @org.jetbrains.annotations.Nullable Bundle arguments) {
 
                 ArrayList<Integer> list = new ArrayList<>();
                 list.add(R.id.navigation_home);
@@ -63,8 +73,15 @@ public class MainActivity extends AppCompatActivity {
         return navController.navigateUp();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }
 
-//        1. Сделать зебру для списка
-//        2. При нажатии на элемент, показать в тосте его position ("0: asd")
-//        3. При долгом нажатии удалить элемент из списка с помощью AlertDialog
+
+//        1. Добавить картинки для страниц
+//        2. Добавить кнопку на последнюю страницу, по нажатию открыть Home
+//        3. TabLayout
+//        4. Добавить кнопку SKIP на самый верх страницы (она не должна двигаться)

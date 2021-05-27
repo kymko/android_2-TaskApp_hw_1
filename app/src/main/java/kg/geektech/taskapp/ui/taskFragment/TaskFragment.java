@@ -1,4 +1,4 @@
-package kg.geektech.taskapp;
+package kg.geektech.taskapp.ui.taskFragment;
 
 import android.os.Bundle;
 
@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import org.jetbrains.annotations.NotNull;
+
+import kg.geektech.taskapp.R;
 
 public class TaskFragment extends Fragment {
     private EditText editText;

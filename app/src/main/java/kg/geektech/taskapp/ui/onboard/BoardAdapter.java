@@ -1,21 +1,15 @@
 package kg.geektech.taskapp.ui.onboard;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
-import androidx.fragment.app.FragmentManager;
-import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
 
 import kg.geektech.taskapp.R;
 
@@ -24,9 +18,8 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
     private OpenHome openHome;
 
 
-
-    private String[] titles = new String[]{"Hello! my friends", "Салам достор!","Ассаламу алайкум баурым!"};
-    private int[] images = new int[]{R.drawable.handshake,R.drawable.sharing,R.drawable.onboarding};
+    private String[] titles = new String[]{"Hello! my friends", "Салам достор!", "Ассаламу алайкум баурым!"};
+    private int[] images = new int[]{R.drawable.handshake, R.drawable.sharing, R.drawable.onboarding};
 
 
     @NotNull
@@ -72,8 +65,11 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
         public void bind(int position) {
             textTitle.setText(titles[position]);
             img.setImageResource(images[position]);
-            if (position == 2 ){
+            if (position == titles.length - 1) {
                 btnStart.setVisibility(View.VISIBLE);
+            } else {
+                btnStart.setVisibility(View.GONE);
+
             }
         }
     }

@@ -5,19 +5,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".TaskFragment">
+    tools:context=".ui.taskFragment.TaskFragment">
 
     <EditText
         android:id="@+id/editText"
         android:hint="Введите задачку"
         android:layout_width="match_parent"
+        android:background="@drawable/bg_edit"
         android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/btnSave"
         android:text="Save"
         android:textAllCaps="false"
+        android:background="@drawable/bg_button"
         android:layout_width="match_parent"
+        style="@style/ButtonStyle"
         android:layout_height="wrap_content"/>
 
 
